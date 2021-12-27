@@ -3,7 +3,7 @@
 <!-- /TITLE -->
 
 <!-- BADGES/ -->
-  <p>
+<p>
     <a href="https://npmjs.org/package/depcheck-detector-execa">
       <img
         src="https://img.shields.io/npm/v/depcheck-detector-execa.svg"
