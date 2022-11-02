@@ -11,6 +11,8 @@ import {
   split,
   uniq,
 } from '@dword-design/functions'
+import loadPkg from 'load-pkg'
+import P from 'path'
 import resolveFrom from 'resolve-from'
 
 const getSegments = node => {
@@ -56,10 +58,17 @@ export default (node, deps) => {
       const binaryPackageMap =
         deps
         |> flatMap(dep => {
-          const packageConfig = require(resolveFrom(
-            process.cwd(),
-            `${dep}/package.json`
-          ))
+          let packageConfig
+          try {
+            packageConfig = require(resolveFrom(
+              process.cwd(),
+              `${dep}/package.json`
+            ))
+          } catch {
+            packageConfig = loadPkg.sync(
+              P.dirname(resolveFrom(process.cwd(), dep))
+            )
+          }
 
           const bin = packageConfig.bin || {}
 

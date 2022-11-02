@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@dword-design/functions": "^4.0.0",
+    "load-pkg": "^4.0.0",
     "resolve-from": "^5.0.0"
   },
   "devDependencies": {

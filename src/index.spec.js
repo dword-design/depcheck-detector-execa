@@ -34,6 +34,19 @@ export default tester(
   `,
       'src/index.js': "execa.command('foo bar')",
     },
+    'esm not exporting package.json': {
+      'node_modules/foo': {
+        'index.js': '',
+        'package.json': JSON.stringify({
+          bin: {
+            bar: './dist/cli.js',
+          },
+          exports: './index.js',
+          type: 'module',
+        }),
+      },
+      'src/index.js': "execa('bar')",
+    },
     'template tag: params': {
       'node_modules/foo/package.json': endent`
     {
