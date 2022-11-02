@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.0...v2.1.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* trigger release ([979119a](https://github.com/dword-design/depcheck-detector-execa/commit/979119a012a6879266634d039b11d13a68d0754c))
+
 # [2.1.0](https://github.com/dword-design/depcheck-detector-execa/compare/v2.0.10...v2.1.0) (2022-11-02)
 
 
