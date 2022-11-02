@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/dword-design/depcheck-detector-execa/compare/v2.0.10...v2.1.0) (2022-11-02)
+
+
+### Features
+
+* esm ([#90](https://github.com/dword-design/depcheck-detector-execa/issues/90)) ([82e0acb](https://github.com/dword-design/depcheck-detector-execa/commit/82e0acb98800c8efb3524c9d8bdcc112531a81a7))
+
 ## [2.0.10](https://github.com/dword-design/depcheck-detector-execa/compare/v2.0.9...v2.0.10) (2022-01-12)
 
 
