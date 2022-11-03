@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.1...v2.1.2) (2022-11-03)
+
+
+### Bug Fixes
+
+* fix subpath ([eebae67](https://github.com/dword-design/depcheck-detector-execa/commit/eebae6777d66ac0861e62e3306006f64081ef8bf))
+
 ## [2.1.1](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.0...v2.1.1) (2022-11-02)
 
 
