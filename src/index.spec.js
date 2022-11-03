@@ -36,14 +36,15 @@ export default tester(
     },
     'esm not exporting package.json': {
       'node_modules/foo': {
-        'index.js': '',
         'package.json': JSON.stringify({
           bin: {
             bar: './dist/cli.js',
           },
-          exports: './index.js',
+          exports: './src/index.js',
+          main: 'src/index.js',
           type: 'module',
         }),
+        'src/index.js': '',
       },
       'src/index.js': "execa('bar')",
     },

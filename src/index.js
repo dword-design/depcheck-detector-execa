@@ -11,8 +11,8 @@ import {
   split,
   uniq,
 } from '@dword-design/functions'
-import loadPkg from 'load-pkg'
 import P from 'path'
+import readPkgUp from 'read-pkg-up'
 import resolveFrom from 'resolve-from'
 
 const getSegments = node => {
@@ -65,9 +65,9 @@ export default (node, deps) => {
               `${dep}/package.json`
             ))
           } catch {
-            packageConfig = loadPkg.sync(
-              P.dirname(resolveFrom(process.cwd(), dep))
-            )
+            packageConfig = readPkgUp.sync({
+              cwd: P.dirname(resolveFrom(process.cwd(), dep)),
+            }).packageJson
           }
 
           const bin = packageConfig.bin || {}
