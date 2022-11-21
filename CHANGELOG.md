@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.2...v2.1.3) (2022-11-21)
+
+
+### Bug Fixes
+
+* support commandSync ([7142574](https://github.com/dword-design/depcheck-detector-execa/commit/71425742b1a4116b23c889866418b8ef72ebe34b))
+
 ## [2.1.2](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.1...v2.1.2) (2022-11-03)
 
 
