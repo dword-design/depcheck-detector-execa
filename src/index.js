@@ -18,7 +18,7 @@ import resolveFrom from 'resolve-from'
 const getSegments = node => {
   if (
     node.callee?.object?.name === 'execa' &&
-    node.callee?.property?.name === 'command'
+    ['command', 'commandSync'].includes(node.callee?.property?.name)
   ) {
     switch (node.arguments[0].type) {
       case 'StringLiteral':

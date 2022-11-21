@@ -34,6 +34,15 @@ export default tester(
   `,
       'src/index.js': "execa.command('foo bar')",
     },
+    commandSync: {
+      'node_modules/foo/package.json': endent`
+    {
+      "name": "foo",
+      "bin": "./dist/cli.js"
+    }
+  `,
+      'src/index.js': "execa.commandSync('foo bar')",
+    },
     'esm not exporting package.json': {
       'node_modules/foo': {
         'package.json': JSON.stringify({
