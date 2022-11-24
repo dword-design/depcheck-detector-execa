@@ -11,9 +11,8 @@ import {
   split,
   uniq,
 } from '@dword-design/functions'
-import P from 'path'
-import readPkgUp from 'read-pkg-up'
-import resolveFrom from 'resolve-from'
+import fs from 'fs-extra'
+import moduleRoot from 'module-root'
 
 const getSegments = node => {
   if (
@@ -58,17 +57,9 @@ export default (node, deps) => {
       const binaryPackageMap =
         deps
         |> flatMap(dep => {
-          let packageConfig
-          try {
-            packageConfig = require(resolveFrom(
-              process.cwd(),
-              `${dep}/package.json`
-            ))
-          } catch {
-            packageConfig = readPkgUp.sync({
-              cwd: P.dirname(resolveFrom(process.cwd(), dep)),
-            }).packageJson
-          }
+          const packageConfig = fs.readJsonSync(
+            `${moduleRoot(dep)}/package.json`
+          )
 
           const bin = packageConfig.bin || {}
 
