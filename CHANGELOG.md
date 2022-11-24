@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.3...v3.0.0) (2022-11-24)
+
+
+### Bug Fixes
+
+* drop node 12 support and switch to esm ([1a25359](https://github.com/dword-design/depcheck-detector-execa/commit/1a253596a207f4f3e8926660010e6658271e0e0a))
+
+
+### BREAKING CHANGES
+
+* drop node 12 support and switch to esm
+
 ## [2.1.3](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.2...v2.1.3) (2022-11-21)
 
 
