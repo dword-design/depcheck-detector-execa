@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "@dword-design/functions": "^4.0.0",
-    "@dword-design/module-root": "^0.2.1",
-    "fs-extra": "^11.1.0"
+    "fs-extra": "^11.1.0",
+    "module-root": "npm:@dword-design/module-root"
   },
   "devDependencies": {
     "@dword-design/base": "^9.0.3",
