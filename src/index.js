@@ -11,8 +11,8 @@ import {
   split,
   uniq,
 } from '@dword-design/functions'
+import moduleRoot from '@dword-design/module-root'
 import fs from 'fs-extra'
-import moduleRoot from 'module-root'
 
 const getSegments = node => {
   if (
