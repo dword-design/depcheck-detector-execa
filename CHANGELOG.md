@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.0...v3.0.1) (2023-01-07)
+
+
+### Bug Fixes
+
+* foo ([eeecdb9](https://github.com/dword-design/depcheck-detector-execa/commit/eeecdb9c6eb9a1b334baa3e580d1b6b137274f8c))
+
 # [3.0.0](https://github.com/dword-design/depcheck-detector-execa/compare/v2.1.3...v3.0.0) (2022-11-24)
 
 
