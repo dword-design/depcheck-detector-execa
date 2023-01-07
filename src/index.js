@@ -35,7 +35,7 @@ const getSegments = node => {
         return []
     }
   }
-  if (node.callee?.name === 'execa') {
+  if (['execa', 'execaSync'].includes(node.callee?.name)) {
     return [
       ...(node.arguments[0].type === 'StringLiteral'
         ? [node.arguments[0].value]
