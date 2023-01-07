@@ -16,8 +16,9 @@ import moduleRoot from 'module-root'
 
 const getSegments = node => {
   if (
-    node.callee?.object?.name === 'execa' &&
-    ['command', 'commandSync'].includes(node.callee?.property?.name)
+    (node.callee?.object?.name === 'execa' &&
+      ['command', 'commandSync'].includes(node.callee?.property?.name)) ||
+    ['execaCommand', 'execaCommandSync'].includes(node.callee?.name)
   ) {
     switch (node.arguments[0].type) {
       case 'StringLiteral':

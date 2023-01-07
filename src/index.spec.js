@@ -57,6 +57,24 @@ export default tester(
       },
       'src/index.js': "execa('bar')",
     },
+    execaCommand: {
+      'node_modules/foo/package.json': endent`
+    {
+      "name": "foo",
+      "bin": "./dist/cli.js"
+    }
+  `,
+      'src/index.js': "execaCommand('foo bar')",
+    },
+    execaCommandSync: {
+      'node_modules/foo/package.json': endent`
+    {
+      "name": "foo",
+      "bin": "./dist/cli.js"
+    }
+  `,
+      'src/index.js': "execaCommandSync('foo bar')",
+    },
     'template tag: params': {
       'node_modules/foo/package.json': endent`
     {
