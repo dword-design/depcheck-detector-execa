@@ -1,3 +1,10 @@
+## [3.0.17](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.16...v3.0.17) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.18 ([26e157e](https://github.com/dword-design/depcheck-detector-execa/commit/26e157e134a8e63e73802a1977787b19457c2986))
+
 ## [3.0.16](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.15...v3.0.16) (2023-03-19)
 
 
