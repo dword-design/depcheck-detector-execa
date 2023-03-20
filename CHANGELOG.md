@@ -1,3 +1,10 @@
+## [3.0.19](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.18...v3.0.19) (2023-03-20)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v11.1.1 ([24b6bf8](https://github.com/dword-design/depcheck-detector-execa/commit/24b6bf8e98652253e7e92cd41db42ecad0d6d66e))
+
 ## [3.0.18](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.17...v3.0.18) (2023-03-19)
 
 
