@@ -1,3 +1,11 @@
+## [3.0.21](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.20...v3.0.21) (2023-04-09)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4.1.7 ([2cfb4c5](https://github.com/dword-design/depcheck-detector-execa/commit/2cfb4c5cb209cfde24b043dcf5b9f9bb769e7cd4))
+* update dependency @dword-design/tester to v2.0.13 ([88793f5](https://github.com/dword-design/depcheck-detector-execa/commit/88793f59b1a2641ae00096d87a79d229e660ffce))
+
 ## [3.0.20](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.19...v3.0.20) (2023-03-21)
 
 
