@@ -59,7 +59,7 @@ export default (node, deps) => {
         deps
         |> flatMap(dep => {
           const packageConfig = fs.readJsonSync(
-            `${moduleRoot(dep)}/package.json`
+            `${moduleRoot(dep)}/package.json`,
           )
 
           const bin = packageConfig.bin || {}

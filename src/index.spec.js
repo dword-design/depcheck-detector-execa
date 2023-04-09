@@ -18,29 +18,29 @@ export default tester(
     },
     'bin string': {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execa('foo')",
     },
     command: {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execa.command('foo bar')",
     },
     commandSync: {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execa.commandSync('foo bar')",
     },
     'esm not exporting package.json': {
@@ -59,47 +59,47 @@ export default tester(
     },
     execaCommand: {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execaCommand('foo bar')",
     },
     execaCommandSync: {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execaCommandSync('foo bar')",
     },
     execaSync: {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execaSync('foo', ['bar'])",
     },
     'template tag: params': {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execa.command(`foo bar ${'bar'}`)",
     },
     'template tag: simple': {
       'node_modules/foo/package.json': endent`
-    {
-      "name": "foo",
-      "bin": "./dist/cli.js"
-    }
-  `,
+        {
+          "name": "foo",
+          "bin": "./dist/cli.js"
+        }
+      `,
       'src/index.js': "execa.command(`foo ${'bar'} baz`)",
     },
   },
@@ -120,5 +120,5 @@ export default tester(
       },
     },
     testerPluginTmpDir(),
-  ]
+  ],
 )
