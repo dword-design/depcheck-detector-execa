@@ -1,3 +1,10 @@
+## [3.0.22](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.21...v3.0.22) (2023-04-10)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.21 ([12735f5](https://github.com/dword-design/depcheck-detector-execa/commit/12735f50662af6222791014b860a60f3c103fc6f))
+
 ## [3.0.21](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.20...v3.0.21) (2023-04-09)
 
 
