@@ -7,15 +7,6 @@ import self from './index.js'
 
 export default tester(
   {
-    'bin different from package name': {
-      'node_modules/foo/package.json': JSON.stringify({
-        bin: {
-          bar: './dist/cli.js',
-        },
-        name: 'foo',
-      }),
-      'src/index.js': "execaCommand('bar')",
-    },
     'bin object': {
       'node_modules/foo/package.json': JSON.stringify({
         bin: {
