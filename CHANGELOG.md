@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.29...v4.0.0) (2024-07-28)
+
+
+### Bug Fixes
+
+* delete .babelrc.json ([cb2967a](https://github.com/dword-design/depcheck-detector-execa/commit/cb2967afa4ed4262510bbb094627bf0c9dfe90be))
+* lock file maintenance ([#134](https://github.com/dword-design/depcheck-detector-execa/issues/134)) ([d330341](https://github.com/dword-design/depcheck-detector-execa/commit/d330341e1972c85faf0d2508c947ba1b1d36f144))
+
+
+### BREAKING CHANGES
+
+* node.js >= 18
+
 ## [3.0.29](https://github.com/dword-design/depcheck-detector-execa/compare/v3.0.28...v3.0.29) (2023-07-02)
 
 
