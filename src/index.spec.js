@@ -1,9 +1,9 @@
-import tester from '@dword-design/tester'
-import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
-import depcheck from 'depcheck'
-import outputFiles from 'output-files'
+import tester from '@dword-design/tester';
+import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir';
+import depcheck from 'depcheck';
+import outputFiles from 'output-files';
 
-import self from './index.js'
+import self from './index.js';
 
 export default tester(
   {
@@ -89,7 +89,7 @@ export default tester(
   [
     {
       transform: test => async () => {
-        await outputFiles(test)
+        await outputFiles(test);
 
         const result = await depcheck('.', {
           detectors: [self],
@@ -98,10 +98,11 @@ export default tester(
               foo: '^1.0.0',
             },
           },
-        })
-        expect(result.dependencies).toEqual([])
+        });
+
+        expect(result.dependencies).toEqual([]);
       },
     },
     testerPluginTmpDir(),
   ],
-)
+);
