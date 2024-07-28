@@ -1,4 +1,3 @@
-import { endent } from '@dword-design/functions';
 import tester from '@dword-design/tester';
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir';
 import depcheck from 'depcheck';
@@ -17,30 +16,24 @@ export default tester(
       'src/index.js': "execa('bar')",
     },
     'bin string': {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execa('foo')",
     },
     command: {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execa.command('foo bar')",
     },
     commandSync: {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execa.commandSync('foo bar')",
     },
     'esm not exporting package.json': {
@@ -58,48 +51,38 @@ export default tester(
       'src/index.js': "execa('bar')",
     },
     execaCommand: {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execaCommand('foo bar')",
     },
     execaCommandSync: {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execaCommandSync('foo bar')",
     },
     execaSync: {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execaSync('foo', ['bar'])",
     },
     'template tag: params': {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execa.command(`foo bar ${'bar'}`)",
     },
     'template tag: simple': {
-      'node_modules/foo/package.json': endent`
-        {
-          "name": "foo",
-          "bin": "./dist/cli.js"
-        }
-      `,
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
       'src/index.js': "execa.command(`foo ${'bar'} baz`)",
     },
   },
