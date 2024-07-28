@@ -10,9 +10,9 @@ import {
   mapValues,
   split,
   uniq,
-} from '@dword-design/functions'
-import fs from 'fs-extra'
-import moduleRoot from 'module-root'
+} from '@dword-design/functions';
+import fs from 'fs-extra';
+import moduleRoot from 'module-root';
 
 const getSegments = node => {
   if (
@@ -22,7 +22,7 @@ const getSegments = node => {
   ) {
     switch (node.arguments[0].type) {
       case 'StringLiteral':
-        return node.arguments[0].value |> split(' ')
+        return node.arguments[0].value |> split(' ');
       case 'TemplateLiteral':
         return (
           node.arguments[0].quasis
@@ -30,11 +30,12 @@ const getSegments = node => {
           |> join(' ')
           |> split(' ')
           |> compact
-        )
+        );
       default:
-        return []
+        return [];
     }
   }
+
   if (['execa', 'execaSync'].includes(node.callee?.name)) {
     return [
       ...(node.arguments[0].type === 'StringLiteral'
@@ -45,32 +46,33 @@ const getSegments = node => {
           |> filter({ type: 'StringLiteral' })
           |> map('value')
         : []),
-    ]
+    ];
   }
 
-  return []
-}
+  return [];
+};
 
 export default (node, deps) => {
   if (node.type === 'CallExpression') {
-    const segments = getSegments(node)
+    const segments = getSegments(node);
+
     if (segments.length > 0) {
       const binaryPackageMap =
         deps
         |> flatMap(dep => {
           const packageConfig = fs.readJsonSync(
             `${moduleRoot(dep)}/package.json`,
-          )
+          );
 
-          const bin = packageConfig.bin || {}
+          const bin = packageConfig.bin || {};
 
           const binaries =
-            typeof bin === 'string' ? [packageConfig.name] : bin |> keys
+            typeof bin === 'string' ? [packageConfig.name] : bin |> keys;
 
-          return binaries |> map(binary => ({ binary, dep }))
+          return binaries |> map(binary => ({ binary, dep }));
         })
         |> groupBy('binary')
-        |> mapValues(tuples => tuples |> map('dep'))
+        |> mapValues(tuples => tuples |> map('dep'));
 
       return (
         segments
@@ -78,9 +80,9 @@ export default (node, deps) => {
         |> compact
         |> flatten
         |> uniq
-      )
+      );
     }
   }
 
-  return []
-}
+  return [];
+};
