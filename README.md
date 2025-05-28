@@ -91,11 +91,11 @@ depcheck(process.cwd(), options, unused => {
 The detector detects calls like
 
 ```js
-import execa from 'execa'
+import { execa, execaCommand } from 'execa'
 
 execa('foo')
 execa('foo', ['--verbose'])
-execa.command('foo bar')
+execaCommand('foo bar')
 ```
 
 <!-- LICENSE/ -->
