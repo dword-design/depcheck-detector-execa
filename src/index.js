@@ -21,9 +21,11 @@ const getSegments = node => {
     ['execaCommand', 'execaCommandSync'].includes(node.callee?.name)
   ) {
     switch (node.arguments[0].type) {
-      case 'StringLiteral':
+      case 'StringLiteral': {
         return node.arguments[0].value |> split(' ');
-      case 'TemplateLiteral':
+      }
+
+      case 'TemplateLiteral': {
         return (
           node.arguments[0].quasis
           |> map('value.raw')
@@ -31,8 +33,11 @@ const getSegments = node => {
           |> split(' ')
           |> compact
         );
-      default:
+      }
+
+      default: {
         return [];
+      }
     }
   }
 

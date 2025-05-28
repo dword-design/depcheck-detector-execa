@@ -9,9 +9,7 @@ export default tester(
   {
     'bin object': {
       'node_modules/foo/package.json': JSON.stringify({
-        bin: {
-          bar: './dist/cli.js',
-        },
+        bin: { bar: './dist/cli.js' },
       }),
       'src/index.js': "execa('bar')",
     },
@@ -39,9 +37,7 @@ export default tester(
     'esm not exporting package.json': {
       'node_modules/foo': {
         'package.json': JSON.stringify({
-          bin: {
-            bar: './dist/cli.js',
-          },
+          bin: { bar: './dist/cli.js' },
           exports: './src/index.js',
           main: 'src/index.js',
           type: 'module',
@@ -93,11 +89,7 @@ export default tester(
 
         const result = await depcheck('.', {
           detectors: [self],
-          package: {
-            dependencies: {
-              foo: '^1.0.0',
-            },
-          },
+          package: { dependencies: { foo: '^1.0.0' } },
         });
 
         expect(result.dependencies).toEqual([]);
