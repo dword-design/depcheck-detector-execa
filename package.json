@@ -1,6 +1,6 @@
 {
   "name": "depcheck-detector-execa",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Detector for depcheck that finds dependencies in execa calls.",
   "repository": "dword-design/depcheck-detector-execa",
   "funding": "https://github.com/sponsors/dword-design",
