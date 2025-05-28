@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/dword-design/depcheck-detector-execa/compare/v4.0.1...v4.0.2) (2025-05-28)
+
+
+### Bug Fixes
+
+* doc ([e65470e](https://github.com/dword-design/depcheck-detector-execa/commit/e65470e196087644716a2861ade78bdab3d7a915))
+
 ## [4.0.1](https://github.com/dword-design/depcheck-detector-execa/compare/v4.0.0...v4.0.1) (2025-05-28)
 
 
