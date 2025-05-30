@@ -13,6 +13,7 @@ import {
 } from '@dword-design/functions';
 import fs from 'fs-extra';
 import moduleRoot from 'module-root';
+import parsePackagejsonName from 'parse-packagejson-name';
 
 const getSegments = node => {
   if (
@@ -72,7 +73,9 @@ export default (node, deps) => {
           const bin = packageConfig.bin || {};
 
           const binaries =
-            typeof bin === 'string' ? [packageConfig.name] : bin |> keys;
+            typeof bin === 'string'
+              ? [parsePackagejsonName(packageConfig.name).fullName]
+              : bin |> keys;
 
           return binaries |> map(binary => ({ binary, dep }));
         })

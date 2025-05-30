@@ -25,7 +25,8 @@
   "dependencies": {
     "@dword-design/functions": "^6.0.0",
     "fs-extra": "^11.1.0",
-    "module-root": "npm:@dword-design/module-root@^0"
+    "module-root": "npm:@dword-design/module-root@^0",
+    "parse-packagejson-name": "^1.0.1"
   },
   "devDependencies": {
     "@dword-design/base": "^12.0.12",

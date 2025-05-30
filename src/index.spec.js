@@ -67,6 +67,14 @@ export default tester(
       }),
       'src/index.js': "execaSync('foo', ['bar'])",
     },
+    scoped: {
+      'node_modules/@bar/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: '@bar/foo',
+      }),
+      packageName: '@bar/foo',
+      'src/index.js': "execa('foo')",
+    },
     'template tag: params': {
       'node_modules/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
@@ -84,15 +92,19 @@ export default tester(
   },
   [
     {
-      transform: test => async () => {
-        await outputFiles(test);
+      transform: test => {
+        test = { packageName: 'foo', ...test };
 
-        const result = await depcheck('.', {
-          detectors: [self],
-          package: { dependencies: { foo: '^1.0.0' } },
-        });
+        return async () => {
+          await outputFiles(test);
 
-        expect(result.dependencies).toEqual([]);
+          const result = await depcheck('.', {
+            detectors: [self],
+            package: { dependencies: { [test.packageName]: '^1.0.0' } },
+          });
+
+          expect(result.dependencies).toEqual([]);
+        };
       },
     },
     testerPluginTmpDir(),
