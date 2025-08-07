@@ -11,9 +11,6 @@ importers:
       '@babel/types':
         specifier: ^7.28.2
         version: 7.28.2
-      depcheck:
-        specifier: npm:@dword-design/depcheck@^0.0.11
-        version: '@dword-design/depcheck@0.0.11'
       fs-extra:
         specifier: ^11.3.1
         version: 11.3.1
@@ -42,6 +39,9 @@ importers:
       '@types/parse-packagejson-name':
         specifier: npm:@dword-design/types-parse-packagejson-name@^1.0.9999
         version: '@dword-design/types-parse-packagejson-name@1.0.9999'
+      depcheck:
+        specifier: npm:@dword-design/depcheck@^0.0.11
+        version: '@dword-design/depcheck@0.0.11'
       output-files:
         specifier: ^3.0.0
         version: 3.0.0

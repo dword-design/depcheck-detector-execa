@@ -46,37 +46,38 @@ const getSegments = (node: t.CallExpression) => {
   return [];
 };
 
-export default (node: t.Node, deps: readonly string[]): string[] => {
-  if (t.isCallExpression(node)) {
-    const segments = getSegments(node);
+export default ({ cwd = '.' }: { cwd: string }) =>
+  (node: t.Node, deps: readonly string[]): string[] => {
+    if (t.isCallExpression(node)) {
+      const segments = getSegments(node);
 
-    if (segments.length > 0) {
-      const binaryPackageMap = mapValues(
-        groupBy(
-          deps.flatMap(dep => {
-            const packageConfig = fs.readJsonSync(
-              `${moduleRoot(dep)}/package.json`,
-            );
+      if (segments.length > 0) {
+        const binaryPackageMap = mapValues(
+          groupBy(
+            deps.flatMap(dep => {
+              const packageConfig = fs.readJsonSync(
+                `${moduleRoot(dep, { cwd })}/package.json`,
+              );
 
-            const bin = packageConfig.bin || {};
+              const bin = packageConfig.bin || {};
 
-            const binaries =
-              typeof bin === 'string'
-                ? [parsePackagejsonName(packageConfig.name).fullName]
-                : Object.keys(bin);
+              const binaries =
+                typeof bin === 'string'
+                  ? [parsePackagejsonName(packageConfig.name).fullName]
+                  : Object.keys(bin);
 
-            return binaries.map(binary => ({ binary, dep }));
-          }),
-          'binary',
-        ),
-        tuples => tuples.map(_ => _.dep),
-      );
+              return binaries.map(binary => ({ binary, dep }));
+            }),
+            'binary',
+          ),
+          tuples => tuples.map(_ => _.dep),
+        );
 
-      return uniq(
-        compact(segments.map(segment => binaryPackageMap[segment])).flat(),
-      );
+        return uniq(
+          compact(segments.map(segment => binaryPackageMap[segment])).flat(),
+        );
+      }
     }
-  }
 
-  return [];
-};
+    return [];
+  };

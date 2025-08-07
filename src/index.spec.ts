@@ -1,10 +1,15 @@
 import { expect, test } from '@playwright/test';
 import depcheck from 'depcheck';
-import outputFiles from 'output-files';
+import outputFiles, { type Files } from 'output-files';
 
 import self from '.';
 
-const tests = {
+interface TestConfig {
+  files: Files;
+  packageName: string;
+}
+
+const tests: Record<string, Partial<TestConfig>> = {
   'bin object': {
     files: {
       'node_modules/foo/package.json': JSON.stringify({
@@ -94,14 +99,14 @@ const tests = {
 };
 
 for (const [name, _testConfig] of Object.entries(tests)) {
-  const testConfig = { packageName: 'foo', ..._testConfig };
+  const testConfig = { files: {}, packageName: 'foo', ..._testConfig };
 
   test(name, async ({}, testInfo) => {
     const cwd = testInfo.outputPath();
-    await outputFiles(cwd, testConfig);
+    await outputFiles(cwd, testConfig.files);
 
-    const result = await depcheck('.', {
-      detectors: [self],
+    const result = await depcheck(cwd, {
+      detectors: [self({ cwd })],
       package: { dependencies: { [testConfig.packageName]: '^1.0.0' } },
     });
 
