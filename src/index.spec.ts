@@ -1,40 +1,29 @@
-import tester from '@dword-design/tester';
-import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir';
+import { expect, test } from '@playwright/test';
 import depcheck from 'depcheck';
 import outputFiles from 'output-files';
 
-import self from './index.js';
+import self from '.';
 
-export default tester(
-  {
-    'bin object': {
+const tests = {
+  'bin object': {
+    files: {
       'node_modules/foo/package.json': JSON.stringify({
         bin: { bar: './dist/cli.js' },
       }),
       'src/index.js': "execa('bar')",
     },
-    'bin string': {
+  },
+  'bin string': {
+    files: {
       'node_modules/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
         name: 'foo',
       }),
       'src/index.js': "execa('foo')",
     },
-    command: {
-      'node_modules/foo/package.json': JSON.stringify({
-        bin: './dist/cli.js',
-        name: 'foo',
-      }),
-      'src/index.js': "execa.command('foo bar')",
-    },
-    commandSync: {
-      'node_modules/foo/package.json': JSON.stringify({
-        bin: './dist/cli.js',
-        name: 'foo',
-      }),
-      'src/index.js': "execa.commandSync('foo bar')",
-    },
-    'esm not exporting package.json': {
+  },
+  'esm not exporting package.json': {
+    files: {
       'node_modules/foo': {
         'package.json': JSON.stringify({
           bin: { bar: './dist/cli.js' },
@@ -46,67 +35,76 @@ export default tester(
       },
       'src/index.js': "execa('bar')",
     },
-    execaCommand: {
+  },
+  execaCommand: {
+    files: {
       'node_modules/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
         name: 'foo',
       }),
       'src/index.js': "execaCommand('foo bar')",
     },
-    execaCommandSync: {
+  },
+  execaCommandSync: {
+    files: {
       'node_modules/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
         name: 'foo',
       }),
       'src/index.js': "execaCommandSync('foo bar')",
     },
-    execaSync: {
+  },
+  execaSync: {
+    files: {
       'node_modules/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
         name: 'foo',
       }),
       'src/index.js': "execaSync('foo', ['bar'])",
     },
-    scoped: {
+  },
+  scoped: {
+    files: {
       'node_modules/@bar/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
         name: '@bar/foo',
       }),
-      packageName: '@bar/foo',
       'src/index.js': "execa('foo')",
     },
-    'template tag: params': {
+    packageName: '@bar/foo',
+  },
+  'template tag: params': {
+    files: {
       'node_modules/foo/package.json': JSON.stringify({
         bin: './dist/cli.js',
         name: 'foo',
       }),
-      'src/index.js': "execa.command(`foo bar ${'bar'}`)",
-    },
-    'template tag: simple': {
-      'node_modules/foo/package.json': JSON.stringify({
-        bin: './dist/cli.js',
-        name: 'foo',
-      }),
-      'src/index.js': "execa.command(`foo ${'bar'} baz`)",
+      'src/index.js': "execaCommand(`foo bar ${'bar'}`)",
     },
   },
-  [
-    {
-      transform: test => {
-        test = { packageName: 'foo', ...test };
-
-        return async () => {
-          await outputFiles(test);
-
-          const result = await depcheck('.', {
-            detectors: [self],
-            package: { dependencies: { [test.packageName]: '^1.0.0' } },
-          });
-
-          expect(result.dependencies).toEqual([]);
-        };
-      },
+  'template tag: simple': {
+    files: {
+      'node_modules/foo/package.json': JSON.stringify({
+        bin: './dist/cli.js',
+        name: 'foo',
+      }),
+      'src/index.js': "execaCommand(`foo ${'bar'} baz`)",
     },
-    testerPluginTmpDir(),
-  ],
-);
+  },
+};
+
+for (const [name, _testConfig] of Object.entries(tests)) {
+  const testConfig = { packageName: 'foo', ..._testConfig };
+
+  test(name, async ({}, testInfo) => {
+    const cwd = testInfo.outputPath();
+    await outputFiles(cwd, testConfig);
+
+    const result = await depcheck('.', {
+      detectors: [self],
+      package: { dependencies: { [testConfig.packageName]: '^1.0.0' } },
+    });
+
+    expect(result.dependencies).toEqual([]);
+  });
+}
