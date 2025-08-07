@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/dword-design/depcheck-detector-execa/compare/v4.0.3...v5.0.0) (2025-08-07)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#145](https://github.com/dword-design/depcheck-detector-execa/issues/145)) ([7a71919](https://github.com/dword-design/depcheck-detector-execa/commit/7a719192ece0cb661f30ae860f20ba7f6f52b879))
+
+
+### BREAKING CHANGES
+
+* node.js >= 20
+
 ## [4.0.3](https://github.com/dword-design/depcheck-detector-execa/compare/v4.0.2...v4.0.3) (2025-05-30)
 
 
