@@ -1,40 +1,44 @@
-import type { Node } from 'depcheck';
+import * as t from '@babel/types';
 import fs from 'fs-extra';
 import { compact, groupBy, mapValues, uniq } from 'lodash-es';
 import moduleRoot from 'module-root';
 import parsePackagejsonName from 'parse-packagejson-name';
 
-const getSegments = (node: Node) => {
-  if (['execaCommand', 'execaCommandSync'].includes(node.callee?.name)) {
-    switch (node.arguments[0].type) {
-      case 'StringLiteral': {
-        return node.arguments[0].value.split(' ');
-      }
+const getSegments = (node: t.CallExpression) => {
+  if (
+    t.isIdentifier(node.callee) &&
+    ['execaCommand', 'execaCommandSync'].includes(node.callee.name)
+  ) {
+    const firstArg = node.arguments[0];
 
-      case 'TemplateLiteral': {
-        return compact(
-          node.arguments[0].quasis
-            .map(_ => _.value.raw)
-            .join(' ')
-            .split(' '),
-        );
-      }
-
-      default: {
-        return [];
-      }
+    if (t.isStringLiteral(firstArg)) {
+      return firstArg.value.split(' ');
     }
+
+    if (t.isTemplateLiteral(firstArg)) {
+      return compact(
+        firstArg.quasis
+          .map(_ => _.value.raw)
+          .join(' ')
+          .split(' '),
+      );
+    }
+
+    return [];
   }
 
-  if (['execa', 'execaSync'].includes(node.callee?.name)) {
+  if (
+    t.isIdentifier(node.callee) &&
+    ['execa', 'execaSync'].includes(node.callee.name)
+  ) {
     return [
-      ...(node.arguments[0].type === 'StringLiteral'
+      ...(t.isStringLiteral(node.arguments[0])
         ? [node.arguments[0].value]
         : []),
-      ...(node.arguments[1]?.type === 'ArrayExpression'
+      ...(t.isArrayExpression(node.arguments[1])
         ? node.arguments[1].elements
-            .filter({ type: 'StringLiteral' })
-            .map('value')
+            .filter(element => t.isStringLiteral(element))
+            .map(element => (element as t.StringLiteral).value)
         : []),
     ];
   }
@@ -42,8 +46,8 @@ const getSegments = (node: Node) => {
   return [];
 };
 
-export default (node: Node, deps: readonly string[]): string[] => {
-  if (node.type === 'CallExpression') {
+export default (node: t.Node, deps: readonly string[]): string[] => {
+  if (t.isCallExpression(node)) {
     const segments = getSegments(node);
 
     if (segments.length > 0) {

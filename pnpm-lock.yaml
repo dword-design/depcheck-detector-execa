@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@types/parse-packagejson-name':
-        specifier: npm:@dword-design/types-parse-packagejson-name@^1.0.9999
-        version: '@dword-design/types-parse-packagejson-name@1.0.9999'
+      '@babel/types':
+        specifier: ^7.28.2
+        version: 7.28.2
+      depcheck:
+        specifier: npm:@dword-design/depcheck@^0.0.11
+        version: '@dword-design/depcheck@0.0.11'
       fs-extra:
         specifier: ^11.3.1
         version: 11.3.1
@@ -36,9 +39,9 @@ importers:
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
-      depcheck:
-        specifier: npm:@dword-design/depcheck@^0.0.10
-        version: '@dword-design/depcheck@0.0.10'
+      '@types/parse-packagejson-name':
+        specifier: npm:@dword-design/types-parse-packagejson-name@^1.0.9999
+        version: '@dword-design/types-parse-packagejson-name@1.0.9999'
       output-files:
         specifier: ^3.0.0
         version: 3.0.0
@@ -242,8 +245,8 @@ packages:
     resolution: {integrity: sha512-liMT6tgQ/YfhNgW6rigOaY0XqfNMMFb+DCwEeLtfBdTJhMUEHwBb8UsChw8uwrxMSQW/YsabfnDsT897pBmBlg==}
     engines: {node: '>=16'}
 
-  '@dword-design/depcheck@0.0.10':
-    resolution: {integrity: sha512-58cHLF0GBm/t4bX1Goe2Oi11BnbRHDOycYbEYAgcJgIrxgAGIXdv1vzC2bWTlPsYSGOQSHoSXIUCrgosrZaYFQ==}
+  '@dword-design/depcheck@0.0.11':
+    resolution: {integrity: sha512-H+9KOHEszcJTY/dFHIw8Jsfmq4pdUwgQbRH8B8NuewdBUPSo48vW40OhhaSAat/4NbjoqeY44brJ3M0mEgyw6w==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -4395,10 +4398,11 @@ snapshots:
       get-package-name: 2.2.0
       sass: 1.62.1
 
-  '@dword-design/depcheck@0.0.10':
+  '@dword-design/depcheck@0.0.11':
     dependencies:
       '@babel/parser': 7.28.0
       '@babel/traverse': 7.28.0
+      '@babel/types': 7.28.2
       '@vue/compiler-sfc': 3.5.18
       callsites: 3.1.0
       camelcase: 6.3.0
