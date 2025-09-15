@@ -40,8 +40,8 @@ importers:
         specifier: npm:@dword-design/types-parse-packagejson-name@^1.0.9999
         version: '@dword-design/types-parse-packagejson-name@1.0.9999'
       depcheck:
-        specifier: npm:@dword-design/depcheck@^0.0.11
-        version: '@dword-design/depcheck@0.0.11'
+        specifier: npm:@dword-design/depcheck@^0.0.12
+        version: '@dword-design/depcheck@0.0.12'
       output-files:
         specifier: ^3.0.0
         version: 3.0.0
@@ -241,8 +241,8 @@ packages:
     resolution: {integrity: sha512-liMT6tgQ/YfhNgW6rigOaY0XqfNMMFb+DCwEeLtfBdTJhMUEHwBb8UsChw8uwrxMSQW/YsabfnDsT897pBmBlg==}
     engines: {node: '>=16'}
 
-  '@dword-design/depcheck@0.0.11':
-    resolution: {integrity: sha512-H+9KOHEszcJTY/dFHIw8Jsfmq4pdUwgQbRH8B8NuewdBUPSo48vW40OhhaSAat/4NbjoqeY44brJ3M0mEgyw6w==}
+  '@dword-design/depcheck@0.0.12':
+    resolution: {integrity: sha512-cTkvdU6mgc57B642oE3XSqwH2tBlt2KBjNIaf9lVvJp+NSBmIO2bSzmOJO4Iih7j6tpb3x6xESDuHZMva7Evfg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -4389,7 +4389,7 @@ snapshots:
       get-package-name: 2.2.0
       sass: 1.62.1
 
-  '@dword-design/depcheck@0.0.11':
+  '@dword-design/depcheck@0.0.12':
     dependencies:
       '@babel/parser': 7.28.4
       '@babel/traverse': 7.28.4
