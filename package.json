@@ -30,24 +30,23 @@
     "verify": "base verify"
   },
   "dependencies": {
-    "@babel/types": "^7.28.2",
-    "fs-extra": "^11.3.1",
+    "@babel/types": "^7.28.5",
+    "fs-extra": "^11.3.2",
     "lodash-es": "^4.17.21",
     "module-root": "npm:@dword-design/module-root@^0.2.5",
-    "parse-packagejson-name": "^1.0.1"
+    "parse-packagejson-name": "^1.1.0"
   },
   "devDependencies": {
-    "@dword-design/base": "^15.3.3",
-    "@playwright/test": "^1.54.2",
+    "@dword-design/base": "^16.1.4",
+    "@playwright/test": "^1.57.0",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
-    "@types/parse-packagejson-name": "npm:@dword-design/types-parse-packagejson-name@^1.0.9999",
-    "depcheck": "npm:@dword-design/depcheck@^0.0.11",
+    "depcheck": "npm:@dword-design/depcheck@^0.0.12",
     "output-files": "^3.0.0"
   },
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
