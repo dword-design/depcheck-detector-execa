@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/dword-design/depcheck-detector-execa/compare/v5.0.0...v6.0.0) (2025-12-15)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v16 ([#165](https://github.com/dword-design/depcheck-detector-execa/issues/165)) ([9c119d1](https://github.com/dword-design/depcheck-detector-execa/commit/9c119d10b2af81bb32bc8ca7e48bc3bc024cef43))
+
+
+### BREAKING CHANGES
+
+* node >= 22
+
 # [5.0.0](https://github.com/dword-design/depcheck-detector-execa/compare/v4.0.3...v5.0.0) (2025-08-07)
 
 
