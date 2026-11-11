@@ -30,7 +30,7 @@
     "verify": "base verify"
   },
   "dependencies": {
-    "@babel/types": "^7.28.5",
+    "@babel/types": "^8.0.0",
     "fs-extra": "^11.3.2",
     "lodash-es": "^4.17.21",
     "module-root": "npm:@dword-design/module-root@^0.2.5",
